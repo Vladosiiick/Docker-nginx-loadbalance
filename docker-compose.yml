@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  nginx-loadbalancer:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - first-site
+      - mysecond-site
+      - third-site
+      - fourth-site
+      - fifth-site
+      - sixth-site
+
+  first-site:
+    image: site-first
+    # Додаткові параметри налаштування для вашого веб-сайту
+
+  mysecond-site:
+    image: second-site
+    # Додаткові параметри налаштування для вашого веб-сайту
+
+  third-site:
+    image: third-site
+    # Додаткові параметри налаштування для вашого веб-сайту
+
+  fourth-site:
+    image: fourth-site
+    # Додаткові параметри налаштування для вашого веб-сайту
+
+  fifth-site:
+    image: fiveth-site
+    # Додаткові параметри налаштування для вашого веб-сайту
+
+  sixth-site:
+    image: sixth-site
+    # Додаткові параметри налаштування для вашого веб-сайту
