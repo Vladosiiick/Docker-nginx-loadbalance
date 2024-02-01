@@ -1,40 +1,68 @@
 version: '3'
 
 services:
-  nginx-loadbalancer:
-    image: nginx
+  first_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8081
+    environment:
+      - DOMAIN_NAME=example1.com
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - first-site
-      - mysecond-site
-      - third-site
-      - fourth-site
-      - fifth-site
-      - sixth-site
+      - "8081:8081"
 
-  first-site:
-    image: site-first
-    # Додаткові параметри налаштування для вашого веб-сайту
+  second_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8082
+    environment:
+      - DOMAIN_NAME=example2.com
+    ports:
+      - "8082:8082"
 
-  mysecond-site:
-    image: second-site
-    # Додаткові параметри налаштування для вашого веб-сайту
+  third_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8083
+    environment:
+      - DOMAIN_NAME=example3.com
+    ports:
+      - "8083:8083"
 
-  third-site:
-    image: third-site
-    # Додаткові параметри налаштування для вашого веб-сайту
+  fourth_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8084
+    environment:
+      - DOMAIN_NAME=example4.com
+    ports:
+      - "8084:8084"
 
-  fourth-site:
-    image: fourth-site
-    # Додаткові параметри налаштування для вашого веб-сайту
+  fifth_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8085
+    environment:
+      - DOMAIN_NAME=example5.com
+    ports:
+      - "8085:8085"
 
-  fifth-site:
-    image: fiveth-site
-    # Додаткові параметри налаштування для вашого веб-сайту
-
-  sixth-site:
-    image: sixth-site
-    # Додаткові параметри налаштування для вашого веб-сайту
+  sixth_site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=8086
+    environment:
+      - DOMAIN_NAME=example6.com
+    ports:
+      - "8086:8086"
