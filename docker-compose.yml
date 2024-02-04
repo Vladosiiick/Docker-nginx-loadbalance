@@ -66,7 +66,7 @@ services:
       - DOMAIN_NAME=example6.com
     ports:
       - "8086:8086"
-        load_balancer:
+  load_balancer:
     build:
       context: .
       dockerfile: Dockerfile.load_balancer
